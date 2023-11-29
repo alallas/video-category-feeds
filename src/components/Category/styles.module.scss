@@ -1,0 +1,30 @@
+.category{
+    overflow: auto;     //当内容溢出的时候，就自动添加滚动条（方向也是自动决定）
+    width: 100%;
+
+    ul{
+        display: flex;
+        padding: 16px;              //一般来说用padding更常见，控制组件本身内部
+
+        li{
+            margin-right: 16px;
+            list-style: none;
+
+            //&:last-child 实际上等同于 li:last-child，
+            //scss用单冒号也可以表示伪类
+            //表示选择所有被父元素选中的 li 元素中的最后一个子元素。
+            //这里没有用到猫头鹰选择器，而是对所有的元素右侧加margin，再减去最后一个的margin-left
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+
+        video{
+            background-color: black;
+            border-radius: 6px;
+            width: 136px;
+            height: 240px;
+        }
+    }
+
+}

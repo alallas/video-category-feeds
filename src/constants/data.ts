@@ -13,6 +13,11 @@ export interface VideoData {
   src: string;
 }
 
+//这里是设置了一个叫videodata的接口，可以在外部文件引入
+//接口主要是用来定义数据格式，这里定义的是对象里面每个key的数据格式
+//后面创建的列表的意思是，创建一个为videodata类型的数组，名称为videoListi
+
+
 const videoList1: VideoData[] = [
   {
     id: '11',
