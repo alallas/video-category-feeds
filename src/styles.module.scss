@@ -2,6 +2,23 @@
     background-color: #fb7299;
     color: white;
 
+    .header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: translateY(0);
+        transition: transform 250ms;
+
+        //这里用top：-56px，也可以但是会很卡，因为会经历到浏览器渲染的三个阶段：layout paint composite
+        //transform只会经历composite，不会经历前两个
+        &.hidden{
+            transform: translateY(-56px);
+        }
+    }
+
+
+
     .line{
         position: fixed;
         top: 50%;
@@ -9,6 +26,11 @@
         width: 100%;
         height: 4px;
         background-color: red;
+    }
+
+    .scrollView{
+        height: 100vh;
+        overflow: auto;
     }
 
     h2{

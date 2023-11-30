@@ -1,0 +1,21 @@
+.navBar{
+    width: 100%;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fb7299;
+
+    .icon{
+        position: absolute;
+        left: 16px;
+
+        //垂直居中
+        //这里相当于先将元素往下移动一半，但是元素本身是占了位置的
+        //因此就是利用translateY向上移动自身高度的50%让他居中
+        top: 50%;
+        transform: translateY(-50%);
+
+    }
+
+}
