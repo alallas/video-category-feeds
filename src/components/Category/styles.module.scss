@@ -4,7 +4,7 @@
 
     ul{
         display: flex;
-        padding: 16px;              //一般来说用padding更常见，控制组件本身内部
+        padding: 16px 0;              //一般来说用padding更常见，控制组件本身内部
 
         li{
             margin-right: 16px;

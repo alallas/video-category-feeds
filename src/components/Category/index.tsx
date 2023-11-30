@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, HTMLAttributes } from "react";
 import { VideoData } from "../../constants/data";
 import styles from "./styles.module.scss";
 
@@ -9,7 +9,17 @@ import styles from "./styles.module.scss";
 //总的来说相当于接口创建————接受接口（定义接口使用的地儿）————调用窗口
 
 
-interface Props{
+//这个接口有点像定义一个模板对象，记录每个参数的格式，后面解构赋值就是用大括号承接这个对象里面的key
+interface Props extends HTMLAttributes<HTMLDivElement>{
+
+    //这里不要这么传，onScroll是div的一个属性，
+    //改成上面的，用props去继承属性，谁的属性，div的属性
+    /*
+    Props 接口继承了 HTMLAttributes<HTMLDivElement>，
+    这意味着这个组件可以接收所有 <div> 元素支持的 HTML 属性
+    */
+    //onScroll:()=>void;
+    
     list:VideoData[];
 }
 
@@ -18,14 +28,15 @@ interface Props{
 //这里把解构赋值挪到下面来了
 
 const Category:FC<Props> =(props:Props)=>{
-    const {list}=props;
+    const {list, ...divProps}=props;
+    //从中解构出 list 属性和其他剩余的属性（...divProps）
 
     return (
-        <div className={styles.category}>
+        <div {...divProps} className={styles.category}>
             <ul>
                 {list.map(videoData=>(
                     <li key={videoData.id}>
-                        <video src={videoData.src}></video>
+                        <video data-video-id={videoData.id} loop muted src={videoData.src}></video>
                     </li>
                 ))}
             </ul>

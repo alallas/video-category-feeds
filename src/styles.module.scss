@@ -35,7 +35,11 @@
 
     h2{
         margin-top: 200px;
-        margin-left: 16px;
+    }
+
+    //这里对category的外部content给一个padding的意义是使得视频和文字都离窗口有一定距离
+    .content{
+        padding: 16px;
     }
     .banner{
         width: 100%;
